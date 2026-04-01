@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Myriam Magda — Nutricionista Certificada & Coach de Bienestar Femenino</title>
+  <meta name="description" content="Soy Myriam Magda — Nutricionista Certificada, Coach Hormonal y fundadora de Womenergyze. Más de 10 años transformando la salud de mujeres Latinas." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── BRAND TOKENS ─── */
+    :root {
+      --burgundy:    #631313;
+      --rose:        #bb3b43;
+      --blush-light: #febdc6;
+      --blush-pale:  #efc7cc;
+      --blush-soft:  #ffe3ea;
+      --cream:       #f0eae2;
+      --black:       #000000;
+      --charcoal:    #424141;
+      --mid-grey:    #9e9e9e;
+      --white:       #ffffff;
+
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body:    'Montserrat', sans-serif;
+    }
+
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ─── UTILITY ─── */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 3px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--burgundy);
+      color: var(--white);
+      border-color: var(--burgundy);
+    }
+    .btn-primary:hover {
+      background: var(--rose);
+      border-color: var(--rose);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(99,19,19,.25);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+    .btn-outline:hover {
+      background: var(--burgundy);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.5);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.15);
+      border-color: var(--white);
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--blush-pale);
+      transition: box-shadow .3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(99,19,19,.08); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-name {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--burgundy);
+      letter-spacing: .5px;
+    }
+    .nav-logo-sub {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--burgundy);
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--blush-pale);
+      padding: 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 20px;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform .3s, opacity .3s;
+    }
+    .mobile-drawer.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-drawer a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--blush-pale);
+    }
+    .mobile-drawer a:last-child { border-bottom: none; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 70px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .hero-content {
+      padding: 80px 60px 80px 0;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--rose);
+    }
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--burgundy);
+      margin-bottom: 8px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .hero-title-sub {
+      font-family: var(--font-heading);
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+      opacity: .75;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--burgundy), var(--blush-light));
+      margin-bottom: 28px;
+    }
+
+    .hero-intro {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--charcoal);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      height: 100%;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .hero-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, var(--blush-light) 0%, var(--blush-pale) 50%, var(--cream) 100%);
+      z-index: 0;
+    }
+    .hero-image-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 1;
+    }
+    /* Decorative rose overlay strip */
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--burgundy), var(--rose), var(--blush-light));
+      z-index: 2;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 40px;
+      left: -20px;
+      background: var(--white);
+      border-left: 4px solid var(--burgundy);
+      padding: 16px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      z-index: 3;
+    }
+    .hero-badge-num {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--burgundy);
+      line-height: 1;
+    }
+    .hero-badge-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 4px;
+    }
+
+    /* ─── CREDIBILITY BAR ─── */
+    .cred-bar {
+      background: var(--burgundy);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .cred-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 32px;
+      border-right: 1px solid rgba(255,255,255,.2);
+    }
+    .cred-item:last-child { border-right: none; }
+    .cred-item svg { flex-shrink: 0; }
+    .cred-item span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blush-light);
+      white-space: nowrap;
+    }
+
+    /* ─── ABOUT / STORY ─── */
+    .about {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image-col {
+      position: relative;
+    }
+    .about-image-frame {
+      position: relative;
+    }
+    .about-image-frame::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: -16px;
+      right: 30px; bottom: 30px;
+      border: 2px solid var(--blush-light);
+      border-radius: 2px;
+      z-index: 0;
+    }
+    .about-image-frame img {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      z-index: 1;
+    }
+    .about-pullquote {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--blush-soft);
+      border-left: 4px solid var(--rose);
+      padding: 20px 24px;
+      max-width: 240px;
+      z-index: 2;
+    }
+    .about-pullquote p {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--burgundy);
+    }
+
+    .about-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--burgundy);
+      margin-bottom: 24px;
+    }
+    .about-content h2 em { font-style: italic; color: var(--rose); }
+
+    .about-content p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    .about-content .highlight {
+      background: var(--blush-soft);
+      border-left: 3px solid var(--rose);
+      padding: 16px 20px;
+      margin: 28px 0;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--burgundy);
+    }
+
+    /* ─── CREDENTIALS ─── */
+    .credentials {
+      padding: 80px 0;
+      background: var(--cream);
+    }
+    .credentials-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .credentials-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 16px;
+    }
+    .credentials-header p {
+      font-size: 15px;
+      color: var(--charcoal);
+      opacity: .75;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--blush-pale);
+    }
+    .cred-card {
+      background: var(--white);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background .25s;
+    }
+    .cred-card:hover { background: var(--blush-soft); }
+
+    .cred-card-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blush-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cred-card-body { font-size: 12px; font-weight: 700; letter-spacing: .5px; color: var(--mid-grey); text-transform: uppercase; }
+    .cred-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+    .cred-card-org {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--rose);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── IMPACT NUMBERS ─── */
+    .impact {
+      padding: 80px 0;
+      background: var(--burgundy);
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+    }
+    .impact-item {
+      padding: 48px 32px;
+      text-align: center;
+      background: var(--burgundy);
+    }
+    .impact-num {
+      font-family: var(--font-heading);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 600;
+      color: var(--blush-light);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .impact-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+
+    /* ─── PROGRAMS (bridge to Womenergyze) ─── */
+    .programs {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .programs-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .programs-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 16px;
+    }
+    .programs-header p {
+      font-size: 15px;
+      color: var(--charcoal);
+      opacity: .75;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .program-card {
+      border: 1px solid var(--blush-pale);
+      border-top: 3px solid var(--rose);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .program-card:hover {
+      box-shadow: 0 12px 40px rgba(99,19,19,.1);
+      transform: translateY(-4px);
+    }
+    .program-card.featured {
+      background: var(--blush-soft);
+      border-top-color: var(--burgundy);
+    }
+    .program-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .program-card.featured .program-tag { color: var(--burgundy); }
+    .program-card h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--burgundy);
+      line-height: 1.2;
+    }
+    .program-card p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--charcoal);
+      flex: 1;
+    }
+    .program-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      transition: gap .2s, color .2s;
+      margin-top: 4px;
+    }
+    .program-link:hover { gap: 10px; color: var(--rose); }
+
+    .programs-womenergyze-cta {
+      background: linear-gradient(135deg, var(--blush-soft) 0%, var(--cream) 100%);
+      border: 1px solid var(--blush-pale);
+      border-radius: 2px;
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .womenergyze-cta-text h3 {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 10px;
+    }
+    .womenergyze-cta-text p {
+      font-size: 14px;
+      color: var(--charcoal);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+    .womenergyze-logo-tag {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--rose);
+      white-space: nowrap;
+    }
+    .womenergyze-logo-tag span {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 2px;
+    }
+
+    /* ─── MEDIA / COMMUNITY ─── */
+    .community {
+      padding: 80px 0;
+      background: var(--cream);
+    }
+    .community-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .community-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 20px;
+    }
+    .community-content p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      margin-bottom: 32px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1.5px solid var(--blush-pale);
+      background: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: border-color .2s, color .2s, background .2s;
+      border-radius: 2px;
+    }
+    .social-link:hover {
+      border-color: var(--rose);
+      color: var(--burgundy);
+      background: var(--blush-soft);
+    }
+
+    .community-visual {
+      position: relative;
+    }
+    .community-card-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .community-card {
+      background: var(--white);
+      padding: 28px 24px;
+      border-bottom: 3px solid var(--blush-light);
+    }
+    .community-card.accent { border-bottom-color: var(--burgundy); background: var(--blush-soft); }
+    .community-card-num {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--burgundy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .community-card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .testimonials-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 16px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--cream);
+      padding: 36px 28px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px; left: 24px;
+      font-family: var(--font-heading);
+      font-size: 80px;
+      line-height: 1;
+      color: var(--blush-light);
+      font-weight: 400;
+    }
+    .testimonial-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      font-style: italic;
+      padding-top: 28px;
+      margin-bottom: 24px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blush-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--burgundy);
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .testimonial-role {
+      font-size: 11px;
+      color: var(--mid-grey);
+      margin-top: 2px;
+    }
+    .testimonial-stars {
+      color: var(--rose);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    /* ─── CONTACT CTA ─── */
+    .contact-cta {
+      padding: 100px 0;
+      background: var(--burgundy);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.03);
+    }
+    .contact-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.03);
+    }
+    .contact-cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .contact-cta .section-label { color: var(--blush-light); }
+    .contact-cta h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .contact-cta h2 em { font-style: italic; color: var(--blush-light); }
+    .contact-cta p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 40px;
+    }
+    .contact-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--black);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-name {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: .5px;
+      margin-bottom: 4px;
+    }
+    .footer-brand-sub {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 20px;
+    }
+    .footer-bio {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--mid-grey);
+      margin-bottom: 24px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-social a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, background .2s;
+    }
+    .footer-social a:hover { border-color: var(--rose); background: rgba(187,59,67,.15); }
+    .footer-social a svg { width: 14px; height: 14px; fill: var(--mid-grey); transition: fill .2s; }
+    .footer-social a:hover svg { fill: var(--blush-light); }
+
+    .footer-col-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--mid-grey);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--blush-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 11px;
+      color: var(--mid-grey);
+    }
+    .footer-bottom a {
+      color: var(--blush-light);
+      transition: color .2s;
+    }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta .btn { display: none; }
+      .hamburger { display: flex; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-image-wrap {
+        order: -1;
+        min-height: 380px;
+        height: 50vw;
+      }
+      .hero-badge { display: none; }
+      .hero-content {
+        padding: 48px 0 60px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .about-image-col { order: -1; }
+      .about-pullquote { bottom: 0; right: 0; }
+
+      .cred-grid { grid-template-columns: 1fr 1fr; }
+
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+
+      .programs-grid { grid-template-columns: 1fr; }
+      .programs-womenergyze-cta { flex-direction: column; text-align: center; }
+
+      .community-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 600px) {
+      .cred-bar-inner { flex-direction: column; }
+      .cred-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); width: 100%; justify-content: center; }
+      .cred-item:last-child { border-bottom: none; }
+
+      .cred-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+
+      .community-card-stack { grid-template-columns: 1fr 1fr; }
+
+      .contact-cta-actions { flex-direction: column; align-items: center; }
+
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Myriam Magda inicio">
+          <span class="nav-logo-name">Myriam Magda</span>
+          <span class="nav-logo-sub">Fundadora de Womenergyze™</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about">Mi Historia</a></li>
+          <li><a href="#credentials">Credenciales</a></li>
+          <li><a href="#programs">Programas</a></li>
+          <li><a href="#community">Comunidad</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="https://www.womenergyze.com" target="_blank" rel="noopener" class="btn btn-primary" style="padding:10px 20px;font-size:11px;">
+            Ver Womenergyze
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Menú de navegación">
+    <a href="#about" class="drawer-link">Mi Historia</a>
+    <a href="#credentials" class="drawer-link">Credenciales</a>
+    <a href="#programs" class="drawer-link">Programas</a>
+    <a href="#community" class="drawer-link">Comunidad</a>
+    <a href="https://www.womenergyze.com" target="_blank" rel="noopener">Ver Womenergyze →</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="container" style="display:contents;">
+      <div class="hero-content container" style="display:block; max-width:none; padding-left:max(24px, calc((100vw - 1100px)/2 + 24px)); padding-right:60px;">
+        <div class="hero-eyebrow reveal">
+          <span class="hero-eyebrow-line"></span>
+          <span class="hero-eyebrow-text">Nutricionista · Coach · Educadora</span>
+        </div>
+
+        <h1 class="reveal reveal-delay-1">
+          Hola, soy<br/>
+          <em>Myriam Magda</em>
+        </h1>
+
+        <p class="hero-title-sub reveal reveal-delay-1">
+          Nutricionista Certificada & Coach de Bienestar Femenino
+        </p>
+
+        <div class="hero-divider reveal reveal-delay-2"></div>
+
+        <p class="hero-intro reveal reveal-delay-2">
+          Con más de una décda de experiencia, he acompañado a miles de mujeres Latinas a reconectar con su cuerpo, equilibrar sus hormonas y transformar su energía — sin dietas extremas, sin castigos, con ciencia y mucho corazón.
+        </p>
+
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#about" class="btn btn-primary">Conoce Mi Historia</a>
+          <a href="#programs" class="btn btn-outline">Ver Mis Programas</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/TJSMSXy2JUWGGmE2wRVX/media/683b58c0ef97f03c233ec8b0.webp"
+          alt="Myriam Magda — Nutricionista Certificada y Coach Hormonal"
+          loading="eager"
+        />
+        <div class="hero-badge">
+          <div class="hero-badge-num">10+</div>
+          <div class="hero-badge-label">Años de experiencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CREDIBILITY BAR ═══ -->
+  <div class="cred-bar">
+    <div class="cred-bar-inner">
+      <div class="cred-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#febdc6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Nutricionista Certificada ISSA</span>
+      </div>
+      <div class="cred-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#febdc6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>+10 Años Transformando Vidas</span>
+      </div>
+      <div class="cred-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#febdc6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>+750K Seguidores en Redes</span>
+      </div>
+      <div class="cred-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#febdc6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        <span>Fundadora de Womenergyze™</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col reveal">
+          <div class="about-image-frame">
+            <img
+              src="https://assets.cdn.filesafe.space/TJSMSXy2JUWGGmE2wRVX/media/687fb8b1023a3881bf9557d3.jpeg"
+              alt="Myriam Magda — Coach de Bienestar Femenino"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-pullquote">
+            <p>"Mi biología no es mi enemiga — es mi mayor aliada para el éxito."</p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="section-label reveal">Mi Historia</p>
+          <h2 class="reveal">Del Tribunal a la <em>Transformación</em></h2>
+
+          <p class="reveal reveal-delay-1">
+            Licenciada en Derecho y Ciencias Sociales por la Universidad Autónoma de Guadalajara, tomé la decisión que cambió mi vida: dejar un puesto estresante en el Tribunal Superior de Arizona para seguir mi verdadera vocación — la salud y el bienestar femenino.
+          </p>
+          <p class="reveal reveal-delay-1">
+            No fue un camino fácil. Yo misma viví la frustración de probar dietas sin resultados, de sentirme traicionada por mi propio cuerpo durante los cambios hormonales. Esa experiencia personal se convirtió en mi mayor fuerza como coach.
+          </p>
+
+          <div class="highlight reveal reveal-delay-2">
+            Hoy, desde Phoenix, Arizona, lidero una comunidad de más de 750,000 mujeres Latinas que están recuperando su energía, su figura y su confianza — sin extremos ni castigos.
+          </div>
+
+          <p class="reveal reveal-delay-2">
+            En 2016 fundé mi presencia digital bajo el nombre @nutricoachmagda, y en 2024 creé <strong>Womenergyze</strong> — un espacio de transformación holística que integra nutrición hormonal, mentalidad y estilo de vida en un solo sistema poderoso.
+          </p>
+
+          <div class="reveal reveal-delay-3" style="margin-top:32px;">
+            <a href="https://www.womenergyze.com" target="_blank" rel="noopener" class="btn btn-primary">
+              Visita Womenergyze →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CREDENTIALS ═══ -->
+  <section class="credentials" id="credentials">
+    <div class="container">
+      <div class="credentials-header">
+        <p class="section-label reveal">Formación Internacional</p>
+        <h2 class="reveal">Certificaciones & Especialidades</h2>
+        <p class="reveal reveal-delay-1">Una sólida base académica que respalda cada recomendación y cada programa.</p>
+      </div>
+
+      <div class="cred-grid">
+        <div class="cred-card reveal">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="cred-card-body">Nutrición</div>
+          <div class="cred-card-title">Nutricionista Certificada</div>
+          <div class="cred-card-org">ISSA</div>
+        </div>
+        <div class="cred-card reveal reveal-delay-1">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="cred-card-body">Especialidad</div>
+          <div class="cred-card-title">Control de Peso Femenino & Ayuno Terapéutico</div>
+          <div class="cred-card-org">Certificación Internacional</div>
+        </div>
+        <div class="cred-card reveal reveal-delay-2">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="cred-card-body">Deporte</div>
+          <div class="cred-card-title">Nutrición Deportiva & Recomposición Corporal</div>
+          <div class="cred-card-org">ISSA</div>
+        </div>
+        <div class="cred-card reveal">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="cred-card-body">Fitness</div>
+          <div class="cred-card-title">Entrenadora Personal de Elite</div>
+          <div class="cred-card-org">ISAA</div>
+        </div>
+        <div class="cred-card reveal reveal-delay-1">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="cred-card-body">Grupal</div>
+          <div class="cred-card-title">Entrenadora Grupal Internacional</div>
+          <div class="cred-card-org">AFAA</div>
+        </div>
+        <div class="cred-card reveal reveal-delay-2">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="cred-card-body">Mente-Cuerpo</div>
+          <div class="cred-card-title">Instructora Certificada en Yoga</div>
+          <div class="cred-card-org">AFFA</div>
+        </div>
+        <div class="cred-card reveal">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-11a1 1 0 1 0 1 1 1 1 0 0 0-1-1zm0 4a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1z"/></svg>
+          </div>
+          <div class="cred-card-body">Medicina Tradicional</div>
+          <div class="cred-card-title">Nutricionista Ayurveda</div>
+          <div class="cred-card-org">AFFA</div>
+        </div>
+        <div class="cred-card reveal reveal-delay-1">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="cred-card-body">Sanación</div>
+          <div class="cred-card-title">Terapista en Sanación Somática</div>
+          <div class="cred-card-org">MVP</div>
+        </div>
+        <div class="cred-card reveal reveal-delay-2">
+          <div class="cred-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bb3b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="cred-card-body">Especialidad Hormonal</div>
+          <div class="cred-card-title">Especialista en Menopausia & Entrenamiento Femenino</div>
+          <div class="cred-card-org">GGS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ IMPACT ═══ -->
+  <section class="impact">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-item reveal">
+          <div class="impact-num">750K+</div>
+          <div class="impact-label">Seguidores en Redes</div>
+        </div>
+        <div class="impact-item reveal reveal-delay-1">
+          <div class="impact-num">45K+</div>
+          <div class="impact-label">Miembros en Keto Club Latino</div>
+        </div>
+        <div class="impact-item reveal reveal-delay-2">
+          <div class="impact-num">17K+</div>
+          <div class="impact-label">Mujeres Transformadas</div>
+        </div>
+        <div class="impact-item reveal reveal-delay-3">
+          <div class="impact-num">10+</div>
+          <div class="impact-label">Años de Experiencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROGRAMS ═══ -->
+  <section class="programs" id="programs">
+    <div class="container">
+      <div class="programs-header">
+        <p class="section-label reveal">Transformación Real</p>
+        <h2 class="reveal">Mis Programas & Servicios</h2>
+        <p class="reveal reveal-delay-1">Cada programa está diseñado para una etapa específica de tu transformación — con acompañamiento real, ciencia y comunidad.</p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="program-card featured reveal">
+          <div class="program-tag">★ Programa Estrella</div>
+          <h3>HormonalMENTE™</h3>
+          <p>El programa definitivo de transformación hormonal. Combina nutrición cíclica, mentalidad y hábitos para recuperar el control total de tu energía, emociones y cuerpo. 8 semanas, grupal, 100% online.</p>
+          <a href="https://nutrinenas.myshopify.com/products/hormonalmente?utm_source=myriammagda.com" target="_blank" rel="noopener" class="program-link">
+            Ver programa
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-tag">Personalizado</div>
+          <h3>Coaching 1:1</h3>
+          <p>Acompañamiento totalmente personalizado con Myriam. Diseñamos juntas un plan adaptado a tu historia, tus metas y tu estilo de vida único. Flexible, individual, 100% online.</p>
+          <a href="https://nutrinenas.myshopify.com/products/mantenimiento?utm_source=myriammagda.com" target="_blank" rel="noopener" class="program-link">
+            Ver programa
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-tag">Sesión Individual</div>
+          <h3>Consulta con Coach Magda</h3>
+          <p>Una sesión individual contigo. Elige entre: Terapia de Sanación Somática o Consulta Nutricional. 40 minutos, enfocado, con resultados concretos.</p>
+          <a href="https://nutrinenas.myshopify.com/products/consulta-virtual-con-coach-magda-40-minutos-espanol?utm_source=myriammagda.com" target="_blank" rel="noopener" class="program-link">
+            Reservar sesión
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bridge to Womenergyze -->
+      <div class="programs-womenergyze-cta reveal">
+        <div class="womenergyze-cta-text">
+          <h3>Todos mis programas viven en Womenergyze™</h3>
+          <p>Womenergyze es mi plataforma oficial de coaching holístico — nutrición, mentalidad, fitness y educación para la mujer Latina lista para el cambio real.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:16px;flex-shrink:0;">
+          <div>
+            <div class="womenergyze-logo-tag">WOMENERGYZE™ <span>by Myriam Magda</span></div>
+          </div>
+          <a href="https://www.womenergyze.com" target="_blank" rel="noopener" class="btn btn-primary">
+            Explorar Womenergyze →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMMUNITY ═══ -->
+  <section class="community" id="community">
+    <div class="container">
+      <div class="community-inner">
+        <div class="community-content">
+          <p class="section-label reveal">Comunidad & Redes</p>
+          <h2 class="reveal">Una Voz Influyente en el Bienestar Latino</h2>
+          <p class="reveal reveal-delay-1">
+            Desde 2016 construyo comunidad con autenticidad. Soy una de las voces más influyentes en nutrición hormonal y bienestar femenino en Latinoamérica — con presencia activa en TikTok, Instagram, YouTube y Facebook.
+          </p>
+          <p class="reveal reveal-delay-1">
+            Mi grupo gratuito <strong>Keto Club Latino</strong> en Facebook reúne a más de 45,000 miembros que se apoyan mutuamente en su transformación.
+          </p>
+
+          <div class="social-links reveal reveal-delay-2">
+            <a href="https://www.tiktok.com/@nutricoachmagda" target="_blank" rel="noopener" class="social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.2 8.2 0 0 0 4.79 1.52V7.03a4.85 4.85 0 0 1-1.02-.34z"/></svg>
+              TikTok
+            </a>
+            <a href="https://www.instagram.com/nutricoachmagda/" target="_blank" rel="noopener" class="social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.youtube.com/@nutricoachmagda" target="_blank" rel="noopener" class="social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+              YouTube
+            </a>
+            <a href="https://www.facebook.com/KetoCoachMagda" target="_blank" rel="noopener" class="social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+            <a href="https://www.facebook.com/KETOCLUBLATINO" target="_blank" rel="noopener" class="social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Keto Club Latino
+            </a>
+          </div>
+        </div>
+
+        <div class="community-visual reveal reveal-delay-1">
+          <div class="community-card-stack">
+            <div class="community-card accent">
+              <div class="community-card-num">750K+</div>
+              <div class="community-card-label">Seguidores totales</div>
+            </div>
+            <div class="community-card">
+              <div class="community-card-num">45K+</div>
+              <div class="community-card-label">Keto Club Latino</div>
+            </div>
+            <div class="community-card">
+              <div class="community-card-num">2016</div>
+              <div class="community-card-label">Presencia online</div>
+            </div>
+            <div class="community-card accent">
+              <div class="community-card-num">4</div>
+              <div class="community-card-label">Plataformas activas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <p class="section-label reveal">Resultados Reales</p>
+        <h2 class="reveal">Lo Que Dicen las Mujeres que Me Conocen</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>HormonalMENTE cambió mi relación con la comida y mi energía. Ahora entiendo mis ciclos y me siento más fuerte que nunca. Coach Magda tiene un don para explicar la ciencia de forma simple.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Andrea R.</div>
+              <div class="testimonial-role">Emprendedora</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>La calidez de Myriam es única. No solo es ciencia, es una conexión real que te motiva a seguir adelante todos los días. Por fin sentí que alguien entendía mi cuerpo en la menopausia.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">L</div>
+            <div>
+              <div class="testimonial-name">Laura V.</div>
+              <div class="testimonial-role">Abogada</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>Por fin encontré un método que se adapta a mi vida y no al revés. Mis migrañas desaparecieron y mi ánimo subió al 100%. Llevo 6 meses y no volvería a mis hábitos anteriores.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Mariana G.</div>
+              <div class="testimonial-role">Madre & Ejecutiva</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT CTA ═══ -->
+  <section class="contact-cta" id="contact">
+    <div class="container">
+      <div class="contact-cta-inner">
+        <p class="section-label reveal">¿Lista para Empezar?</p>
+        <h2 class="reveal">Tu transformación <em>comienza aquí</em></h2>
+        <p class="reveal reveal-delay-1">Tanto si buscas equilibrar tus hormonas, recuperar tu energía, o simplemente entender tu cuerpo — hay un programa diseñado exactamente para ti.</p>
+        <div class="contact-cta-actions reveal reveal-delay-2">
+          <a href="https://myriammagda.com/contact" class="btn btn-ghost">Contáctame</a>
+          <a href="https://www.womenergyze.com" target="_blank" rel="noopener" class="btn btn-primary" style="background:var(--blush-light);color:var(--burgundy);border-color:var(--blush-light);">
+            Ver Womenergyze →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Myriam Magda</div>
+          <div class="footer-brand-sub">Nutricionista · Coach · Educadora</div>
+          <p class="footer-bio">
+            Nutricionista Certificada y Coach de Bienestar Femenino con más de una década transformando la salud y el estilo de vida de mujeres Latinas. Fundadora de Womenergyze™.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@nutricoachmagda" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.2 8.2 0 0 0 4.79 1.52V7.03a4.85 4.85 0 0 1-1.02-.34z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/nutricoachmagda/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@nutricoachmagda" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://www.facebook.com/KetoCoachMagda" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navegación</div>
+          <ul class="footer-links">
+            <li><a href="#about">Mi Historia</a></li>
+            <li><a href="#credentials">Credenciales</a></li>
+            <li><a href="#programs">Programas</a></li>
+            <li><a href="#community">Comunidad</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Mis Plataformas</div>
+          <ul class="footer-links">
+            <li><a href="https://www.womenergyze.com" target="_blank" rel="noopener">Womenergyze™</a></li>
+            <li><a href="https://www.nutrinenas.com/collections/suplementos" target="_blank" rel="noopener">NutriNenas Suplementos</a></li>
+            <li><a href="https://www.facebook.com/KETOCLUBLATINO" target="_blank" rel="noopener">Keto Club Latino</a></li>
+            <li><a href="https://myriammagda.com/contact">Contáctame</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Myriam Magda LLC. Todos los derechos reservados. | <a href="https://www.womenergyze.com" target="_blank" rel="noopener">Womenergyze™</a></p>
+        <p style="font-size:10px;color:#666;">Diseño: myriammagda.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ JS ═══ -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const drawer    = document.getElementById('mobileDrawer');
+
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      drawer.classList.toggle('open', open);
+    });
+
+    // Close drawer on link click
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        drawer.classList.remove('open');
+      });
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Trigger hero reveals immediately
+    document.querySelectorAll('.hero .reveal').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 100);
+    });
+  </script>
+</body>
+</html>
