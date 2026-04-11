@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página no encontrada — Myriam Magda</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --burgundy:    #631313;
+      --rose:        #bb3b43;
+      --blush-light: #febdc6;
+      --blush-soft:  #ffe3ea;
+      --cream:       #f0eae2;
+      --charcoal:    #424141;
+      --mid-grey:    #9e9e9e;
+      --white:       #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--blush-soft);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--burgundy);
+      text-decoration: none;
+    }
+    .nav-logo-sub {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 2px;
+      text-decoration: none;
+    }
+    .nav-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      background: var(--burgundy);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background .2s;
+    }
+    .nav-home-btn:hover { background: var(--rose); }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .card {
+      background: var(--white);
+      max-width: 560px;
+      width: 100%;
+      padding: 64px 48px;
+      text-align: center;
+      border-top: 4px solid var(--burgundy);
+      box-shadow: 0 8px 40px rgba(99,19,19,.08);
+      animation: fadeUp .6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .error-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--blush-light);
+      margin-bottom: 8px;
+      letter-spacing: -4px;
+    }
+
+    .error-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 24px;
+    }
+
+    .card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--burgundy);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .card h1 em { font-style: italic; }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--burgundy), var(--blush-light));
+      margin: 0 auto 24px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      opacity: .8;
+      margin-bottom: 36px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--burgundy);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background .2s, transform .2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-primary:hover {
+      background: var(--rose);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--burgundy);
+      border: 1.5px solid var(--burgundy);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background .2s, color .2s, transform .2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-outline:hover {
+      background: var(--burgundy);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .quick-links {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--blush-soft);
+    }
+    .quick-links-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 16px;
+    }
+    .quick-links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .quick-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--rose);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .quick-link:hover { border-bottom-color: var(--rose); }
+    .quick-link-sep {
+      color: var(--blush-light);
+      font-size: 12px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 11px;
+      color: var(--mid-grey);
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .footer a { color: var(--rose); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .card { padding: 48px 28px; }
+      .error-num { font-size: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" style="text-decoration:none;">
+        <span class="nav-logo-name">Myriam Magda</span>
+        <span class="nav-logo-sub">Fundadora de Womenergyze™</span>
+      </a>
+      <a href="/" class="nav-home-btn">
+        ← Inicio
+      </a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="card">
+      <div class="error-num">404</div>
+      <div class="error-label">Página no encontrada</div>
+
+      <h1>Esta página se <em>perdió</em> en el camino</h1>
+      <div class="divider"></div>
+
+      <p>
+        La página que buscas no existe o fue movida. No te preocupes — sigue habiendo mucho por explorar.
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn-primary">
+          ← Volver al Inicio
+        </a>
+        <a href="https://www.womenergyze.com" target="_blank" rel="noopener" class="btn-outline">
+          Ver Womenergyze™ →
+        </a>
+      </div>
+
+      <div class="quick-links">
+        <div class="quick-links-label">O ve directo a</div>
+        <div class="quick-links-list">
+          <a href="/#about" class="quick-link">Mi Historia</a>
+          <span class="quick-link-sep">·</span>
+          <a href="/#credentials" class="quick-link">Credenciales</a>
+          <span class="quick-link-sep">·</span>
+          <a href="/#programs" class="quick-link">Programas</a>
+          <span class="quick-link-sep">·</span>
+          <a href="/#community" class="quick-link">Comunidad</a>
+          <span class="quick-link-sep">·</span>
+          <a href="https://myriammagda.com/contact" class="quick-link">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 Myriam Magda LLC · <a href="https://www.womenergyze.com" target="_blank" rel="noopener">Womenergyze™</a>
+  </footer>
+
+</body>
+</html>

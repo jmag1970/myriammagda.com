@@ -1,0 +1,11 @@
+# robots.txt — myriammagda.com
+# Updated: 2025-07-17
+
+User-agent: *
+Allow: /
+
+# Block 404 error page from indexing
+Disallow: /404.html
+
+# Sitemap location
+Sitemap: https://www.myriammagda.com/sitemap.xml
